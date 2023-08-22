@@ -1,0 +1,620 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300&display=swap");
+
+:root {
+    /* C O L O R - P A L E T T E S */
+    /* 0 1 */
+    --Color01_01: rgb(64, 64, 64);
+    --Color01_02: rgb(25, 25, 25);
+    --Color01_03:
+        --Color01_04: rgb(255, 255, 255);
+    --Color01_05: rgb(0, 0, 0);
+
+    /* 0 2 */
+    --Color02_01: rgb(1, 13, 0);
+    --Color02_02: rgb(166, 153, 146);
+    --Color02_03: rgb(89, 85, 82);
+    --Color02_04: rgb(242, 226, 220);
+    --Color02_05: rgb(242, 226, 220);
+
+    /* 0 3 */
+    --Color03_01: rgb(197, 211, 217);
+    --Color03_02: rgb(174, 186, 191);
+    --Color03_03: rgb(174, 186, 191);
+    --Color03_04: rgb(156, 165, 166);
+    --Color03_05: rgb(240, 242, 242);
+
+    /* 0 3 */
+    --Color04_01: rgb(89, 35, 49);
+    --Color04_02: ;
+    --Color04_03:
+        --Color04_04: rgb(115, 115, 115);
+
+    /* C O L O R S */
+    --BGcolor: rgba(242, 242, 242, 1);
+    --FontColor: rgba(13, 13, 13, 1);
+    --AccentColor: rgb(112, 0, 0);
+    --HoverColor: rgba(247, 247, 247, 1);
+    --BorderColor: rgba(204, 204, 204, 1);
+
+    /* F O N T   S I Z E */
+    --HeaderFS: 20px;
+    --FooterFS: 20px;
+
+    --H1: 32px;
+    --H2: 28px;
+    --H3: 24px;
+    --H4: 20px;
+    --H4: 16px;
+
+    --padding: 8px;
+    --margin: 12px;
+    --mainBorder: 1.5px solid var(--BorderColor);
+    --mainBorderDashed: 1.5px dashed black;
+    --mainBorderRadius: 4px;
+}
+
+/* H E L P   C L A S S */
+
+.nowrap {
+    word-wrap: no;
+}
+
+.outerContainer {
+    display: flex;
+    flex-direction: row;
+    margin: var(--margin) 0;
+    border: 0;
+    justify-items: center;
+    align-items: center;
+}
+
+.boxShadow {
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.1s ease-in;
+}
+
+.boxShadow:hover {
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease-out;
+}
+
+.H1 {
+    font-size: var(--H1);
+}
+
+.H2 {
+    font-size: var(--H2);
+}
+
+.H3 {
+    font-size: var(--H3);
+}
+
+.H4 {
+    font-size: var(--H4);
+}
+
+.H5 {
+    font-size: var(--H5);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Urbanist", sans-serif;
+    cursor: default;
+}
+
+img {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+button {
+    background-color: var(--AccentColor);
+    border: var(--mainBorder);
+    border-radius: var(--mainBorderRadius);
+    color: var(--BGcolor);
+    padding: var(--padding);
+}
+
+button:hover {
+    background-color: transparent;
+    color: var(--AccentColor);
+    cursor: pointer;
+}
+
+button.clicked {
+    background-color: transparent;
+    color: var(--AccentColor);
+}
+
+/* Slider */
+
+input[type="range"]::-moz-focus-outer {
+    border: 0;
+    background-color: transparent;
+}
+
+input[type="range"]::-moz-range-thumb {
+    background-color: var(--HoverColor);
+    border-radius: var(--mainBorderRadius);
+    cursor: pointer;
+}
+
+input[type="range"]:active::-moz-range-thumb {
+    background-color: var(--AccentColor);
+}
+
+input[type="range"]:disabled::-moz-range-thumb {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+input[type="range"]::-moz-range-track {
+    background-color: var(--HoverColor);
+    border-radius: calc(var(--mainBorderRadius) * 2);
+    border: var(--mainBorder);
+}
+
+input[type="range"]:disabled::-moz-range-track {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+input[type="range"]::-moz-range-progress {
+    background-color: var(--AccentColor);
+}
+
+input[type="range"]:disabled::-moz-range-progress {
+    background-color: transparent;
+}
+
+canvas {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: block;
+}
+
+a {
+    background-color: transparent;
+}
+
+html {
+    padding: 0 8%;
+}
+
+header {
+    border: var(--mainBorder);
+    display: flex;
+    justify-content: space-around;
+}
+
+header div {
+    display: inline-flex;
+    position: relative;
+    height: 32px;
+    font-size: var(--HeaderFS);
+    font-weight: bold;
+    column-gap: calc(var(--margin) * 2);
+}
+
+header div.logo {
+    height: 56px;
+}
+
+header div .gridContainer {
+    display: inline-flex;
+    position: relative;
+    height: 32px;
+    font-size: var(--HeaderFS);
+    font-weight: bold;
+    column-gap: calc(var(--margin) * 2);
+}
+
+/* Styling for dropdown container */
+header .dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+header .dropdown:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 120%;
+}
+
+header .dropdown .dropbtn {
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    color: var(--FontColor);
+    column-gap: calc(var(--margin) * 2);
+    display: inline-flex;
+    font-size: var(--HeaderFS);
+    font-weight: bold;
+    height: 32px;
+    padding: 4px 12px;
+    z-index: 1;
+}
+
+header .dropdown:hover .dropbtn {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Hidden by Default */
+header .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    left: 50%;
+    transform: translateX(-50%) translateY(+20%);
+}
+
+/* Show the dropdown menu on hover */
+header .dropdown:hover .dropdown-content {
+    display: grid;
+    /* Grid-Layout */
+    grid-template-columns: 1fr 1fr;
+    /* Zwei Spalten */
+    grid-gap: 0;
+}
+
+/* Links inside the dropdown */
+header .dropdown .dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    width: 280px;
+    color: black;
+    background-color: white;
+    border: 1px solid transparent;
+    font-weight: lighter;
+}
+
+/* Change color of dropdown links on hover */
+header .dropdown .dropdown-content a:hover {
+    background-color: var(--HoverColor);
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: var(--BorderColor);
+    text-underline-offset: 4px;
+}
+
+header .dropdown .dropdown-content a:nth-child(odd) {
+    border-left: 1px solid var(--BorderColor);
+}
+
+header .dropdown .dropdown-content a:nth-child(even) {
+    border-right: 1px solid var(--BorderColor);
+    text-align: right;
+}
+
+header .dropdown .dropdown-content a:first-child {
+    /* Runden Sie die oberen Ecken ab */
+    border-top-left-radius: 4px;
+    border-top: 1px solid var(--BorderColor);
+}
+
+header .dropdown .dropdown-content a:nth-child(2) {
+    /* Runden Sie die oberen Ecken ab */
+    border-top-right-radius: 4px;
+    border-top: 1px solid var(--BorderColor);
+}
+
+header .dropdown .dropdown-content a:nth-last-child(2) {
+    /* Runden Sie die oberen Ecken ab */
+    border-bottom-left-radius: 4px;
+    border-bottom: 1px solid var(--BorderColor);
+}
+
+header .dropdown .dropdown-content a:last-child {
+    /* Runden Sie die unteren Ecken ab */
+    border-bottom-right-radius: 4px;
+    border-bottom: 1px solid var(--BorderColor);
+}
+
+main .outerFrame {
+    border-radius: var(--mainBorderRadius);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding: var(--padding);
+    width: 100%;
+}
+
+main .outerFrame .topic {
+    border-radius: var(--mainBorderRadius);
+    box-shadow: inset 0 0 0 1px var(--AccentColor);
+    font-size: var(--H1);
+    letter-spacing: 2px;
+    padding: var(--padding);
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+main {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+main .outerContainer {
+    width: 95%;
+    justify-content: center;
+    padding: 0;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+main .outerContainer .grid {
+    margin: var(--margin);
+    display: inline-grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: calc(var(--margin));
+    width: 100%;
+    margin: var(--margin) 0;
+}
+
+main .outerContainer .grid .gridContainer {
+    align-items: center;
+    border: 1px solid var(--BorderColor);
+    border-radius: var(--mainBorderRadius);
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    font-weight: bold;
+    justify-content: center;
+    padding: var(--padding);
+    text-align: justify;
+    transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in;
+    width: 100%;
+}
+
+main .outerContainer .grid .gridContainer:hover {
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    background-color: var(--HoverColor);
+    transition: box-shadow 0.2s ease-in, background-color 0.1s ease-in;
+    cursor: pointer;
+}
+
+main .outerContainer .grid .gridContainer .Themenueberschrift {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    padding: calc(var(--padding) * 0.2);
+    word-wrap: break-word;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+main .outerContainer .grid .gridContainer:hover .Themenueberschrift {
+    text-decoration: underline;
+    text-decoration-color: var(--BorderColor);
+    text-underline-offset: 2px;
+    cursor: pointer;
+}
+
+main .outerContainer .grid .gridContainer .Themenbeschreibung {
+    width: 100%;
+    padding: calc(var(--padding) * 0.2);
+    word-wrap: break-word;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+main .outerContainer .grid .gridContainer:hover .Themenbeschreibung {
+    cursor: pointer;
+}
+
+main .outerContainer .throwsContainer {
+    width: 100%;
+}
+
+main .outerContainer .canvasContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+main .outerContainer .canvasContainer .dropdown-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: center;
+}
+
+main .outerContainer .canvasContainer .dropdown-container div {
+    width: 100%;
+}
+
+main .outerContainer .canvasContainer .dropdown-container div select {
+    background-color: var(--HoverColor);
+    border: var(--mainBorder);
+    border-radius: var(--mainBorderRadius);
+    margin: var(--margin) 0;
+    padding: calc(var(--padding) * 0.5) var(--padding);
+}
+
+
+main .outerContainer .canvasContainer .dropdown-container div input {
+    width: 100%;
+}
+
+main .outerContainer .canvasContainer #canvasContainer {
+    width: 100%;
+}
+
+main .outerContainer .innerContainer {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    display: inline-flex;
+    align-items: center;
+}
+
+main .outerContainer .sliderContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+main .outerContainer .sliderContainer input {
+    width: 100%;
+    padding: var(--padding);
+}
+
+main .outerContainer .sliderContainer input:hover {
+    cursor: pointer;
+}
+
+main .outerContainer .diagramGrid {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: end;
+}
+
+main .outerContainer .zahlenContainer {
+    margin-top: 8px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+}
+
+.sliderContainer {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.sliderContainer #sliderValue {
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: -20px;
+    /* Sie können diesen Wert ändern, um den Abstand unter dem Schieberegler anzupassen */
+    color: transparent;
+}
+
+#myBarChart,
+#myPieChart,
+#mittelwertChart,
+#varianzChart {
+    display: inline-block;
+    padding: 2px;
+}
+
+/* F O O T E R */
+
+footer div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: var(--FooterFS);
+    color: var(--BorderColor);
+}
+
+/* || SMALL */
+@media screen and (max-width: 576px) {
+    .small-screen {}
+
+    main .outerContainer .grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    header .dropdown .dropdown-content {
+        min-width: 240px;
+    }
+
+    header .dropdown:hover .dropdown-content {
+        display: grid;
+        /* Grid-Layout */
+        grid-template-columns: 1fr;
+        /* Zwei Spalten */
+        grid-gap: 0;
+    }
+
+    header .dropdown .dropdown-content a:nth-child(even),
+    header .dropdown .dropdown-content a:nth-child(odd) {
+        text-align: center;
+    }
+
+    header .dropdown .dropdown-content a,
+    header .dropdown .dropdown-content a:nth-child(2),
+    header .dropdown .dropdown-content a:nth-last-child(2) {
+        border-right: 1px solid var(--BorderColor);
+        border-left: 1px solid var(--BorderColor);
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+    }
+
+    header .dropdown .dropdown-content a:first-child {
+        /* Runden Sie die oberen Ecken ab */
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-top: 1px solid var(--BorderColor);
+    }
+
+    header .dropdown .dropdown-content a {
+        border-right: 1px solid var(--BorderColor);
+        border-left: 1px solid var(--BorderColor);
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+    }
+
+    header .dropdown .dropdown-content a:last-child {
+        /* Runden Sie die oberen Ecken ab */
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom: 1px solid var(--BorderColor);
+    }
+}
+
+/* Fügen Sie weitere Stile hinzu, um das Aussehen Ihrer Dropdown-Menüs und Slider anzupassen */
+
+/* || MEDIUM */
+@media screen and (min-width: 768px) {
+    .medium-screen {}
+}
+
+/* || LARGE */
+@media screen and (min-width: 992px) {
+    .large-screen {}
+
+    main .outerContainer .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* || XL  */
+@media screen and (min-width: 1200px) {
+    main .outerContainer .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* || MOBILE DEVICE LANDSCAPE  */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+    .mobile-screen {}
+}
