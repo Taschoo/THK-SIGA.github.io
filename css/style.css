@@ -21,7 +21,7 @@
     --Color03_01: rgb(197, 211, 217);
     --Color03_02: rgb(174, 186, 191);
     --Color03_03: rgb(174, 186, 191);
-    --Color03_04: rgb(156, 165, 166);
+    --Color03_04: #9ca5a6;
     --Color03_05: rgb(240, 242, 242);
 
     /* 0 3 */
@@ -45,7 +45,8 @@
     --H2: 28px;
     --H3: 24px;
     --H4: 20px;
-    --H4: 16px;
+    --H5: 16px;
+    --H6: 12px;
 
     --padding: 8px;
     --margin: 12px;
@@ -111,6 +112,7 @@ img {
     display: block;
     height: 100%;
     width: auto;
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 button {
@@ -233,6 +235,10 @@ header .dropdown:before {
     height: 120%;
 }
 
+header .dropdown:hover {
+    cursor: pointer;
+}
+
 header .dropdown .dropbtn {
     background-color: transparent;
     border: none;
@@ -248,7 +254,8 @@ header .dropdown .dropbtn {
 }
 
 header .dropdown:hover .dropbtn {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: rgba(0, 0, 0, 0.04);
+    transition: background-color 0.2s ease-out;
 }
 
 /* Hidden by Default */
@@ -368,11 +375,12 @@ main .outerContainer .grid {
     margin: var(--margin) 0;
 }
 
-main .outerContainer .grid .gridContainer {
+main .outerContainer .grid a .gridContainer {
     align-items: center;
     border: 1px solid var(--BorderColor);
     border-radius: var(--mainBorderRadius);
     box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    color: black;
     display: inline-block;
     font-weight: bold;
     justify-content: center;
@@ -380,16 +388,17 @@ main .outerContainer .grid .gridContainer {
     text-align: justify;
     transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in;
     width: 100%;
+
 }
 
-main .outerContainer .grid .gridContainer:hover {
+main .outerContainer .grid a .gridContainer:hover {
     box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.2);
     background-color: var(--HoverColor);
     transition: box-shadow 0.2s ease-in, background-color 0.1s ease-in;
     cursor: pointer;
 }
 
-main .outerContainer .grid .gridContainer .Themenueberschrift {
+main .outerContainer .grid a .gridContainer .Themenueberschrift {
     width: 100%;
     text-align: center;
     text-transform: uppercase;
@@ -399,22 +408,42 @@ main .outerContainer .grid .gridContainer .Themenueberschrift {
     border-radius: 4px;
 }
 
-main .outerContainer .grid .gridContainer:hover .Themenueberschrift {
+main .outerContainer .grid a .gridContainer:hover .Themenueberschrift {
     text-decoration: underline;
     text-decoration-color: var(--BorderColor);
     text-underline-offset: 2px;
     cursor: pointer;
 }
 
-main .outerContainer .grid .gridContainer .Themenbeschreibung {
+main .outerContainer .grid a .gridContainer .Themenbeschreibung {
     width: 100%;
     padding: calc(var(--padding) * 0.2);
     word-wrap: break-word;
-    font-size: 16px;
+    font-size: var(--H6);
     font-weight: lighter;
+    cursor: pointer;
+
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: var(--margin);
+    grid-row-gap: 0px;
 }
 
-main .outerContainer .grid .gridContainer:hover .Themenbeschreibung {
+main .outerContainer .grid a .gridContainer:hover .Themenbeschreibung {
+    cursor: pointer;
+}
+
+main .outerContainer .grid a .Themenbeschreibung img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: var(--mainBorder);
+    border-radius: var(--mainBorderRadius);
+    cursor: pointer;
+}
+
+main .outerContainer .grid a .Themenbeschreibung div {
     cursor: pointer;
 }
 
@@ -595,13 +624,10 @@ footer div {
 
 /* || MEDIUM */
 @media screen and (min-width: 768px) {
-    .medium-screen {}
 }
 
 /* || LARGE */
 @media screen and (min-width: 992px) {
-    .large-screen {}
-
     main .outerContainer .grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -616,5 +642,4 @@ footer div {
 
 /* || MOBILE DEVICE LANDSCAPE  */
 @media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
-    .mobile-screen {}
 }
