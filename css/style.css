@@ -3,35 +3,9 @@
 
 :root {
     /* C O L O R - P A L E T T E S */
-    /* 0 1 */
-    --Color01_01: rgb(64, 64, 64);
-    --Color01_02: rgb(25, 25, 25);
-    --Color01_03:
-        --Color01_04: rgb(255, 255, 255);
-    --Color01_05: rgb(0, 0, 0);
-
-    /* 0 2 */
-    --Color02_01: rgb(1, 13, 0);
-    --Color02_02: rgb(166, 153, 146);
-    --Color02_03: rgb(89, 85, 82);
-    --Color02_04: rgb(242, 226, 220);
-    --Color02_05: rgb(242, 226, 220);
-
-    /* 0 3 */
-    --Color03_01: rgb(197, 211, 217);
-    --Color03_02: rgb(174, 186, 191);
-    --Color03_03: rgb(174, 186, 191);
-    --Color03_04: #9ca5a6;
-    --Color03_05: rgb(240, 242, 242);
-
-    /* 0 3 */
-    --Color04_01: rgb(89, 35, 49);
-    --Color04_02: ;
-    --Color04_03:
-        --Color04_04: rgb(115, 115, 115);
 
     /* C O L O R S */
-    --BGcolor: rgba(242, 242, 242, 1);
+    --BGcolor: rgb(242, 242, 242);
     --FontColor: rgba(13, 13, 13, 1);
     --AccentColor: rgb(112, 0, 0);
     --HoverColor: rgba(247, 247, 247, 1);
@@ -47,6 +21,7 @@
     --H4: 20px;
     --H5: 16px;
     --H6: 12px;
+    --H7: 8px;
 
     --padding: 8px;
     --margin: 12px;
@@ -80,6 +55,11 @@
     transition: box-shadow 0.2s ease-out;
 }
 
+.leftAlign {
+    text-align: start;
+    width: 100%;
+}
+
 .H1 {
     font-size: var(--H1);
 }
@@ -98,6 +78,14 @@
 
 .H5 {
     font-size: var(--H5);
+}
+
+.H6 {
+    font-size: var(--H6);
+}
+
+.H7 {
+    font-size: var(--H7);
 }
 
 * {
@@ -134,8 +122,38 @@ button.clicked {
     color: var(--AccentColor);
 }
 
-/* Slider */
+ul {
+    font-size: var(--H5);
+    list-style-position: inside;
+    list-style-type: none;
+}
 
+ul li {
+    align-items: center;
+    display: flex;
+    font-size: var(--H6);
+    margin: calc(0.5 * var(--margin)) 0;
+}
+
+ul li::before {
+    content: "▷";
+    /* Fügt den Bindestrich hinzu */
+    font-size: var(--H7);
+    margin-right: 8px;
+    /* Abstand zwischen dem Bindestrich und dem Listentext */
+}
+
+input {
+    width: 100%;
+}
+
+/* Für alle Browser */
+input[type="range"] {
+    /* Gemeinsame Stile, z. B.: */
+    outline: none;
+}
+
+/* Für Mozilla (Firefox) */
 input[type="range"]::-moz-focus-outer {
     border: 0;
     background-color: transparent;
@@ -331,6 +349,14 @@ header .dropdown .dropdown-content a:last-child {
     border-bottom: 1px solid var(--BorderColor);
 }
 
+main {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 main .outerFrame {
     border-radius: var(--mainBorderRadius);
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
@@ -350,12 +376,20 @@ main .outerFrame .topic {
     width: 100%;
 }
 
-main {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+main .subtopic {
+    border-radius: var(--mainBorderRadius);
+    box-shadow: inset 0 0 0 1px var(--BorderColor);
+    font-size: var(--H3);
+    letter-spacing: 2px;
+    margin: var(--margin);
+    padding: calc(0.5 * var(--padding));
+    text-align: center;
+    text-transform: uppercase;
     width: 100%;
+}
+
+main .h3 {
+    text-align: start;
 }
 
 main .outerContainer {
@@ -364,6 +398,10 @@ main .outerContainer {
     padding: 0;
     display: inline-flex;
     flex-direction: column;
+}
+
+main .outerContainer div {
+    width: 100%;
 }
 
 main .outerContainer .grid {
@@ -451,13 +489,19 @@ main .outerContainer .throwsContainer {
     width: 100%;
 }
 
-main .outerContainer .canvasContainer {
+main .outerContainer #canvasContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    display: grid;
-    grid-template-columns: 4fr 1fr;
+    height: 100%;
 }
 
-main .outerContainer .canvasContainer .dropdown-container {
+main .outerContainer div input {
+    width: 100%;
+}
+
+main .outerContainer .canvasContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -466,25 +510,59 @@ main .outerContainer .canvasContainer .dropdown-container {
     align-content: center;
 }
 
-main .outerContainer .canvasContainer .dropdown-container div {
+main .outerContainer .canvasContainer div {
     width: 100%;
 }
 
-main .outerContainer .canvasContainer .dropdown-container div select {
+main .outerContainer .canvasContainer div label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+main .outerContainer .canvasContainer div select {
     background-color: var(--HoverColor);
     border: var(--mainBorder);
     border-radius: var(--mainBorderRadius);
+    display: inline-block;
     margin: var(--margin) 0;
     padding: calc(var(--padding) * 0.5) var(--padding);
+    vertical-align: middle;
 }
 
+main .outerContainer .canvasContainer div #htDropdown {
+    margin-right: calc(var(--margin) * 4);
+}
 
-main .outerContainer .canvasContainer .dropdown-container div input {
-    width: 100%;
+main .outerContainer .canvasContainer div #stDropdown {
+    margin-right: var(--margin);
+}
+
+main .outerContainer .canvasContainer div input {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle;
 }
 
 main .outerContainer .canvasContainer #canvasContainer {
     width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .outerContainer .canvasContainer #canvasContainer canvas {
+    max-height: 60vh;
+}
+
+main .outerContainer .canvasFlex {
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: nowrap; 
+    justify-content: space-evenly; 
+    align-items: center;  
+    align-content: center;
+    margin: var(--margin);
 }
 
 main .outerContainer .innerContainer {
@@ -515,15 +593,17 @@ main .outerContainer .sliderContainer input:hover {
 }
 
 main .outerContainer .diagramGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: var(--margin) 0;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: end;
 }
 
 main .outerContainer .zahlenContainer {
-    margin-top: 8px;
+    margin: 8px 0;
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
@@ -552,6 +632,21 @@ main .outerContainer .zahlenContainer {
 #varianzChart {
     display: inline-block;
     padding: 2px;
+    max-height: 200px;
+}
+
+#canvasContainerFunktionen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#phi {
+    color: var(--AccentColor);
+    margin: var(--margin) 0;
+    width: 100%;
+    text-align: center;
 }
 
 /* F O O T E R */
@@ -566,7 +661,15 @@ footer div {
 
 /* || SMALL */
 @media screen and (max-width: 576px) {
-    .small-screen {}
+    :root {
+        --H1: 28px;
+        --H2: 24px;
+        --H3: 20px;
+        --H4: 16px;
+        --H5: 12px;
+        --H6: 8px;
+        --H7: 32px;
+    }
 
     main .outerContainer .grid {
         grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -618,28 +721,74 @@ footer div {
         border-bottom-right-radius: 4px;
         border-bottom: 1px solid var(--BorderColor);
     }
+
+    main .outerContainer .diagramGrid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    main .outerContainer .zahlenContainer {
+        height: calc(12.5*var(--H5));
+    }
+
+    main .outerContainer .canvasContainer canvas {
+        max-height: 200px;
+    }
 }
 
-/* Fügen Sie weitere Stile hinzu, um das Aussehen Ihrer Dropdown-Menüs und Slider anzupassen */
-
 /* || MEDIUM */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
+
+    main .outerContainer .diagramGrid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    main .outerContainer .zahlenContainer {
+        height: calc(8.5*var(--H5));
+    }
+
+    main .outerContainer .canvasContainer canvas {
+        max-height: 200px;
+    }
 }
 
 /* || LARGE */
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 992px) {
     main .outerContainer .grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    main .outerContainer .diagramGrid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    main .outerContainer .zahlenContainer {
+        height: calc(5*var(--H5));
+    }
+
+    main .outerContainer .canvasContainer canvas {
+        max-height: 200px;
     }
 }
 
 /* || XL  */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 993px) {
     main .outerContainer .grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
-}
 
-/* || MOBILE DEVICE LANDSCAPE  */
-@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+    main .outerContainer .diagramGrid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    main .outerContainer .zahlenContainer {
+        height: calc(3*var(--H5));
+    }
+
+    main .outerContainer .canvasContainer canvas {
+        max-height: 200px;
+    }
 }

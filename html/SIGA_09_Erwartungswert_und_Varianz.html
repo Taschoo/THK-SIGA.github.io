@@ -17,7 +17,7 @@
                 <img src="../img/image_white.png" width="1600" height="1600" />
             </div> -->
         <div class="gridContainer">
-            <div class="dropdown" onclick="window.location.href='../index.html';">
+            <div class="dropdown" onclick="window.location.href='..';">
                 <button class="dropbtn">SIGA</button>
                 <div class="dropdown-content">
                     <a href="SIGA_01_Sinus_und_Kosinus.html">Sinus und Kosinus</a>
@@ -31,10 +31,10 @@
                     <a href="SIGA_09_Erwartungswert_und_Varianz.html">Erwartungswert und Varianz</a>
                     <a href="SIGA_10_Korrelationskoeffizient.html">Korrelationskoeffizient</a>
                     <a href="SIGA_11_Joseph_Fourier.html">Joseph Fourier</a>
-                    <a href="SIGA_12_Friedrich_Gauss.html">Friedrich Gauß</a>
+                    <a href="SIGA_12_Linksammlung.html">Linksammlung</a>
                 </div>
             </div>
-            <div class="dropdown" onclick="window.location.href='../index.html';">
+            <div class="dropdown" onclick="window.location.href='..';">
                 <button class="dropbtn">BV</button>
                 <div class="dropdown-content">
                     <a href="BV_01.html">Thema 01</a>
@@ -83,34 +83,29 @@
 
             <div class="diagramGrid">
                 <div>
-                    <div>
-                        <div class="H3">Relative Häufigkeit:</div> <br>
-                        <canvas id="myBarChart" height="200"></canvas>
-                    </div>
-                    <div>
-                        <div class="H3">Mittelwert:</div>
-                        <canvas id="mittelwertChart" height="200"></canvas>
-                    </div>
+                    <div class="H3">Relative Häufigkeit:</div>
+                    <canvas id="myBarChart" height="200"></canvas>
                 </div>
                 <div>
-                    <div>
-                        <div class="H3">Relative Häufigkeit:</div> <br>
-                        <canvas id="myPieChart" height="200"></canvas>
-                    </div>
-                    <div>
-                        <div class="H3">Varianz:</div>
-                        <canvas id="varianzChart" height="200"></canvas>
-                    </div>
+                    <div class="H3">Mittelwert:</div>
+                    <canvas id="mittelwertChart" height="200"></canvas>
+                </div>
+                <div>
+                    <div class="H3">Relative Häufigkeit:</div>
+                    <canvas id="myPieChart" height="200"></canvas>
+                </div>
+                <div>
+                    <div class="H3">Varianz:</div>
+                    <canvas id="varianzChart" height="200"></canvas>
                 </div>
             </div>
-            
+
             <div class="zahlenContainer">
-                <div>Zahlen:&nbsp;</div>
-                <div class="H4" id="Zahlen"></div>
+                <div class="H5" id="Zahlen"></div>
             </div>
 
-            <script src="../Erwartungswert und Varianz/Canvas.js"></script>
-            <script src="../Erwartungswert und Varianz/Mittelwert.js"></script>
+            <script src="../js/0109_Erwartungswert_und_Varianz_Canvas.js"></script>
+            <script src="../js/0109_Erwartungswert_und_Varianz.js"></script>
         </div>
     </main>
 
